@@ -88,7 +88,7 @@
       if (!j.ok) { btn.disabled = false; btn.textContent = "この内容で報告する"; return err(j.message || "送信できませんでした。"); }
       $("f").hidden = true; $("intro").hidden = true; const d = $("done"); d.hidden = false;
       d.innerHTML = "<div class='thanks'><h2>報告ありがとうございました</h2><p id='t1'></p><p class='note' id='t2'></p></div>";
-      $("t1").textContent = (DEMO ? "（デモ表示：記録はされていません）" : "") + yen(body.finalAmount) + " で、報告を受け取りました。売上の登録まで終わっています。";
+      $("t1").textContent = (DEMO ? "（デモ表示：記録はされていません）" : "") + yen(body.finalAmount) + " で、報告を受け取りました。" + (j.notes ? "一部の処理が終わっていません。事務所が確認します（もう一度送らなくて大丈夫です）。" : "売上の登録まで終わっています。");
       $("t2").textContent = j.surveyMail ? "お客様に、アンケート（品質チェック）のお願いが届きます。" : "お客様のメールアドレスが無いので、アンケートのお願いは、事務所が別の方法でお客様に渡します。";
       window.scrollTo(0, 0);
     };
