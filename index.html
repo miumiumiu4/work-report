@@ -21,7 +21,9 @@
       <div class="q"><label class="lab" for="amount">お客様にいただいた金額（税込・円）<em>必須</em></label><input type="number" id="amount" class="t" inputmode="numeric" min="0" max="1000000" step="1"></div>
       <p class="note" id="reserved"></p>
       <div class="q" id="notebox" hidden><label class="lab" for="amountNote">金額が違う理由<em>必須</em></label><input type="text" id="amountNote" class="t" maxlength="120" placeholder="例：浴室の追加・値引き1,000円"></div>
-      <div class="q"><label class="lab" for="payment">お支払い方法<em>必須</em></label><select id="payment"></select></div></section>
+      <div class="q"><label class="lab" for="payment">お支払い方法<em>必須</em></label><select id="payment"></select></div>
+      <div class="q"><label class="lab" for="ratePct">今回の歩合率（％）<span class="opt">空のままなら、いつもの率</span></label><input type="number" id="ratePct" class="t" inputmode="decimal" min="0" max="100" step="0.5" placeholder="例：55">
+        <p class="note" id="ratehint"></p></div></section>
     <section class="card"><h2><span class="no">3</span>作業のチェック</h2>
       <p class="sub">全部に答えてください。「いいえ」は、状況をひとこと書きます。</p>
       <div class="quick"><button type="button" id="allyes" class="ghost">すべて「はい」にする（あとから直せます）</button></div>
