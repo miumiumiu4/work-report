@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>作業報告</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="form.css"></head>
+<body>
+<header class="top"><div class="wrap"><div class="brand" id="brand">作業報告</div></div></header>
+<main class="wrap">
+  <section id="intro" class="card hero"><h1>作業報告</h1>
+    <p>作業のあと、<b>約2分</b>で入れてください。料金は、料金表から自動で出ます。出し終わると、売上の登録まで終わります。</p>
+    <p class="note" id="job"></p><p class="note" id="demo" hidden>（デモ表示です。送信しても記録されません）</p></section>
+  <form id="f" novalidate autocomplete="off" hidden>
+    <input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+    <section class="card"><h2><span class="no">1</span>担当者</h2>
+      <div class="q"><label class="lab" for="staff">作業した人</label><select id="staff"></select></div>
+      <div class="q" id="otherbox" hidden><label class="lab" for="other">お名前</label><input type="text" id="other" class="t" maxlength="30"></div></section>
+    <section class="card"><h2><span class="no">2</span>作業内容と料金</h2>
+      <p class="sub" id="pricesub"></p>
+      <table class="pl" id="plist"></table>
+      <div class="total"><span>料金表の合計（税込）</span><b id="calc">0円</b></div>
+      <p class="warn" id="missing" hidden></p>
+      <div class="q"><label class="lab" for="amount">お客様にいただいた金額（税込・円）<em>必須</em></label><input type="number" id="amount" class="t" inputmode="numeric" min="0" max="1000000" step="1"></div>
+      <p class="note" id="reserved"></p>
+      <div class="q" id="notebox" hidden><label class="lab" for="amountNote">金額が違う理由<em>必須</em></label><input type="text" id="amountNote" class="t" maxlength="120" placeholder="例：浴室の追加・値引き1,000円"></div>
+      <div class="q"><label class="lab" for="payment">お支払い方法<em>必須</em></label><select id="payment"></select></div></section>
+    <section class="card"><h2><span class="no">3</span>作業のチェック</h2>
+      <p class="sub">全部に答えてください。「いいえ」は、状況をひとこと書きます。</p>
+      <div class="quick"><button type="button" id="allyes" class="ghost">すべて「はい」にする（あとから直せます）</button></div>
+      <div id="checks"></div>
+      <label class="agree"><input type="checkbox" id="problem"><span>気になること・問題がありました</span></label>
+      <div class="q" id="pmbox" hidden><label class="lab" for="pm">状況<em>必須</em></label><input type="text" id="pm" class="t" maxlength="300" placeholder="例：壁紙に小さな傷。お客様に説明済み"></div></section>
+    <section class="card"><h2><span class="no">4</span>追加の項目<span class="opt">あれば</span></h2>
+      <div class="three"><div class="q"><label class="lab" for="hose">ホース(本)</label><input type="number" id="hose" class="t" inputmode="numeric" min="0" max="99" value="0"></div>
+        <div class="q"><label class="lab" for="transport">交通費(円)</label><input type="number" id="transport" class="t" inputmode="numeric" min="0" value="0"></div>
+        <div class="q"><label class="lab" for="parking">駐車場(円)</label><input type="number" id="parking" class="t" inputmode="numeric" min="0" value="0"></div></div>
+      <fieldset class="q"><legend>お客様にお願いして、いただけたもの</legend>
+        <label class="agree"><input type="checkbox" id="review"><span>口コミ</span></label><label class="agree"><input type="checkbox" id="line"><span>LINE登録</span></label><label class="agree"><input type="checkbox" id="mail"><span>メルマガ登録</span></label></fieldset></section>
+    <section class="card" id="mailcard"><h2><span class="no">5</span>お客様のメールアドレス<span class="opt">未登録の時だけ</span></h2>
+      <p class="sub">作業のあと、お客様に「アンケート（品質チェック）」のお願いをメールで送ります。<b>お客様の前で、ご本人に入力してもらってください</b>（あなたが代わりに適当に入れないでください）。</p>
+      <div class="q"><label class="lab" for="email">メールアドレス</label><input type="email" id="email" class="t" inputmode="email" autocomplete="off">
+        <p class="note">お客様へのご案内：「ご回答の確認・ご連絡のほか、キャンペーンやお得な情報をお送りします（配信停止はいつでもできます）」</p></div>
+      <label class="agree" id="agreebox" hidden><input type="checkbox" id="agree"><span>お客様に、上のご案内をお伝えして、ご本人からいただきました<em>必須</em></span></label></section>
+    <section class="card"><p class="err" id="err" role="alert" hidden></p>
+      <button type="submit" id="submit" class="primary">この内容で報告する</button></section>
+  </form>
+  <section id="done" class="card" hidden></section>
+</main>
+<footer class="wrap foot"><p>この画面には、お客様のお名前・ご住所・お電話は出ません。</p></footer>
+<script src="config.js"></script><script src="form.js"></script>
+</body></html>
